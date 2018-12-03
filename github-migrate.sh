@@ -7,23 +7,23 @@ do
         repo=$line
         echo "###"
         echo "Processing $repo"
-				echo " "
+	echo " "
         git clone --bare git@git.mydomain.com:$repo
         cd $repo.git
-				echo " "
+	echo " "
         echo "Creating repo in Github"
-				echo " "
+	echo " "
         curl -H "Authorization: token <token>" --data '{"name":"'$repo'"","private":true,"team_id":<teamid>}' https://api.github.com/orgs/myorg/repos
         echo "Pushing mirror to Github"
-				echo " "
+	echo " "
         git push --mirror git@github.com:myorg/$repo.git
         cd ..
         echo "Removing $repo.git"
-				echo " "
+	echo " "
         rm -rf "$repo.git"
         echo "Waiting 3 seconds"
         echo "###"
-				echo " "
+	echo " "
         sleep 3;
 done < $1
 
