@@ -16,5 +16,5 @@ Shell script to migrate a repo to Github
  
 # example curl 
 ``` 
-curl -i -H "Authorization: token <token>" --data '{"name":"helloworld","private":true,"team_id":1234}' 
+curl -i -H "Authorization: token <token>" --data '{"name":"helloworld","private":true,"team_id":1234}' https://api.github.com/orgs/myorg/repos 
 ```
